@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -43,4 +44,7 @@ dependencies {
     api(libs.androidx.activity)
     api(libs.androidx.constraintlayout)
     api(libs.gson)
+    api(libs.kotlin.stdlib)
+
 }
+
