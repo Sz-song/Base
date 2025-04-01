@@ -5,7 +5,7 @@ import android.util.Log
 
 object L {
     private const val TAG = "MY_LOG"
-    
+    @JvmStatic
     fun d(msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -15,7 +15,7 @@ object L {
         )
         Log.d(TAG, msg!!)
     }
-
+    @JvmStatic
     fun d(tag: String?, msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -26,7 +26,7 @@ object L {
         Log.d(tag, msg!!)
 
     }
-
+    @JvmStatic
     fun e(msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -36,6 +36,7 @@ object L {
         )
         Log.e(TAG, msg!!)
     }
+    @JvmStatic
     fun e(msg: Int?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -45,7 +46,7 @@ object L {
         )
         Log.e(TAG, msg!!.toString())
     }
-
+    @JvmStatic
     fun e(tag: String?, msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -55,7 +56,7 @@ object L {
         )
         Log.e(tag, msg!!)
     }
-
+    @JvmStatic
     fun i(msg: String?) {
 
         
@@ -66,7 +67,7 @@ object L {
         )
         Log.i(TAG, msg!!)
     }
-
+    @JvmStatic
     fun i(tag: String?, msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -76,7 +77,7 @@ object L {
         )
         Log.i(tag, msg!!)
     }
-
+    @JvmStatic
     fun w(msg: String?) {
 
         
@@ -87,7 +88,7 @@ object L {
         )
         Log.w(TAG, msg!!)
     }
-
+    @JvmStatic
     fun w(tag: String?, msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()
@@ -98,7 +99,7 @@ object L {
         Log.w(tag, msg!!)
 
     }
-
+    @JvmStatic
     fun v(msg: String?) {
 
         
@@ -109,7 +110,7 @@ object L {
         )
         Log.v(TAG, msg!!)
     }
-
+    @JvmStatic
     fun v(tag: String?, msg: String?) {
         
         val targetStackTraceElement = getTargetStackTraceElement()

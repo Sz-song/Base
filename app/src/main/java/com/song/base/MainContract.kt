@@ -4,14 +4,15 @@ import com.tools.base.BaseView
 
 interface MainContract {
 
-    interface IMainModel{
-        fun doSomeThing():Boolean
+    interface IMainModel {
+        fun doSomeThing(): Boolean
     }
-    interface IMainView : BaseView{
+
+    interface IMainView : BaseView {
         fun doSomeThingSuccess()
     }
 
-    interface IMainPresenter{
+    interface IMainPresenter {
         fun doSomeThing()
     }
 

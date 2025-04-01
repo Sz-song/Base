@@ -4,7 +4,7 @@ import com.tools.base.BasePresenter
 import com.tools.base.util.L
 
 class MainPresenter : BasePresenter<MainContract.IMainView>(),MainContract.IMainPresenter{
-    private var model: MainContract.IMainModel = MainModel()
+    private val model: MainContract.IMainModel = MainModel()
 
 
     override fun doSomeThing() {

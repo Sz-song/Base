@@ -10,10 +10,11 @@ import com.tools.base.util.L
 import java.lang.reflect.ParameterizedType
 
 
-open class BaseActivity<T : ViewBinding, P : BasePresenter<BaseView>> : AppCompatActivity() , BaseView{
+open class BaseActivity<T,P>  : AppCompatActivity() , BaseView
+        where T : ViewBinding, P : BasePresenter<BaseView>{
 
-    protected var binding: T? = null
-    protected var presenter: P? = null
+    lateinit var binding: T
+    lateinit var presenter: P
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,22 +30,15 @@ open class BaseActivity<T : ViewBinding, P : BasePresenter<BaseView>> : AppCompa
             //获取viewBinding的inflate方法
             val method = bindingClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
             /* 执行viewBinding的inflate方法 */
-            binding = method.invoke(null, layoutInflater) as T?
-            if(binding!=null) {
-                L.e(binding?.javaClass?.name)
-                setContentView(binding?.root)
-            }else{
-                L.e("binding 未初始化")
-            }
+            binding = method.invoke(null, layoutInflater) as T
+            L.e(binding.javaClass.name)
+            setContentView(binding.root)
+            //初始化presenter
             val constructor = presenterClass.getDeclaredConstructor()
             constructor.isAccessible = true
-            presenter = constructor.newInstance() as P?
-            if(presenter!=null){
-                presenter?.attachView(this)
-                L.e(presenter?.javaClass?.name)
-            }else{
-                L.e("presenter 未初始化")
-            }
+            presenter = constructor.newInstance() as P
+            presenter.attachView(this)
+            L.e(presenter.javaClass.name)
         } catch (e: Exception) {
             L.e(e.toString())
         }
@@ -53,7 +47,7 @@ open class BaseActivity<T : ViewBinding, P : BasePresenter<BaseView>> : AppCompa
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter?.detachView()
+        presenter.detachView()
 
     }
 
