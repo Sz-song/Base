@@ -3,8 +3,6 @@ package com.song.base;
 import com.tools.base.BasePresenter;
 import com.tools.base.util.L;
 
-import java.util.Objects;
-
 public class MainJPresenter extends BasePresenter<MainJContract.IMainView> implements MainJContract.IMainPresenter {
     private final MainJContract.IMainModel model;
     public MainJPresenter() {
