@@ -1,8 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.mavenPublish)
     id("maven-publish")
 }
+
+
 
 android {
     namespace = "com.tools.base"
@@ -47,4 +50,8 @@ dependencies {
     api(libs.kotlin.stdlib)
 
 }
+
+
+
+
 
